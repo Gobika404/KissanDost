@@ -1,6 +1,6 @@
-#  KisanDost: Smart AI-Based Farming Assistant
+#  KissanDost: Smart AI-Based Farming Assistant
 
-KisanDost is an AI-powered farming assistant designed to help farmers make better decisions using real-time data, AI suggestions, and rural-friendly communication methods. It supports eco-friendly practices and is designed for low-power environments with limited internet access.
+KissanDost is an AI-powered farming assistant designed to help farmers make better decisions using real-time data, AI suggestions, and rural-friendly communication methods. It supports eco-friendly practices and is designed for low-power environments with limited internet access.
 
 ---
 
@@ -17,7 +17,7 @@ Farmers face challenges in making informed decisions about crop selection, irrig
 
 ##  Proposed Solution
 
-KisanDost offers a multi-agent AI system that:
+KissanDost offers a multi-agent AI system that:
 
 - Uses IoT sensors to collect real-time environmental data  
 - Provides personalized suggestions for crops, irrigation, and markets  
