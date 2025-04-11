@@ -1,26 +1,38 @@
-from sensors.sensor_reader import get_sensor_data
-from ai.advisor import generate_advice
-from voice.voice_alert import speak
-from data.database import store_data
-from utils.lorawan import send_data_lorawan
+# app/main.py
+
+from agents.farmer_agent import FarmerAgent
+from agents.weather_agent import WeatherAgent
+from agents.market_agent import MarketAgent
+from agents.sustainability_agent import SustainabilityAgent
+from utils.sqlite_handler import SQLiteHandler
+from utils.sensor_data import get_soil_data, get_weather_data
+from utils.voice_assist import speak
 
 def main():
-    print(" KisanDost Starting...")
+    # Initialize SQLite database
+    db = SQLiteHandler("farm_data.db")
 
-    # Step 1: Collect data from sensors
-    data = get_sensor_data()
+    # Create agent instances
+    farmer = FarmerAgent(db)
+    weather = WeatherAgent()
+    market = MarketAgent()
+    sustainability = SustainabilityAgent()
 
-    # Step 2: Store data to SQLite
-    store_data(data)
+    # Collect sensor data
+    soil_data = get_soil_data()
+    weather_data = get_weather_data()
 
-    # Step 3: Generate advice using AI logic
-    advice = generate_advice(data)
+    # Agent decisions
+    crop = farmer.recommend_crop(soil_data, weather_data)
+    irrigation = weather.irrigation_schedule(weather_data)
+    price_tip = market.suggest_market_crop()
+    eco_tip = sustainability.get_sustainability_tip()
 
-    # Step 4: Speak the advice
-    speak(advice)
+    # Voice alerts in local language (simulated)
+    speak(f"Recommended Crop: {crop}")
+    speak(f"Irrigation Advice: {irrigation}")
+    speak(f"Market Suggestion: {price_tip}")
+    speak(f"Eco Tip: {eco_tip}")
 
-    # Step 5: Send data via LoRaWAN (mock)
-    send_data_lorawan(data)
-
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
