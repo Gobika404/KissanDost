@@ -1,21 +1,31 @@
-# app/agents/farmer_agent.py
+### ai/advisor.py
 
-class FarmerAgent:
-    def _init_(self, db):
-        self.db = db
+python
+def analyze_data(sensor_data):
+    """
+    Provides basic farming advice based on sensor data.
+    """
+    recommendations = []
 
-    def recommend_crop(self, soil_data, weather_data):
-        # Example logic based on moisture and temperature
-        moisture = soil_data.get("moisture")
-        temperature = weather_data.get("temperature")
+    # Soil moisture recommendation
+    if sensor_data["soil_moisture"] < 30:
+        recommendations.append("Soil moisture is low. Consider irrigating the field.")
+    elif sensor_data["soil_moisture"] > 70:
+        recommendations.append("Soil moisture is high. Avoid over-irrigation.")
 
-        if moisture > 60 and 20 < temperature < 30:
-            crop = "Rice"
-        elif moisture < 40:
-            crop = "Millets"
-        else:
-            crop = "Wheat"
+    # Temperature recommendation
+    if sensor_data["temperature"] > 35:
+        recommendations.append("Temperature is high. Provide shade or increase watering for heat-sensitive crops.")
+    elif sensor_data["temperature"] < 18:
+        recommendations.append("Temperature is low. Consider protective measures for crops.")
 
-        # Store the recommendation in the database
-        self.db.save_crop_recommendation(crop)
-        return crop
+    # Humidity recommendation
+    if sensor_data["humidity"] > 80:
+        recommendations.append("High humidity detected. Monitor for potential fungal infections.")
+
+    if not recommendations:
+        recommendations.append("All conditions are optimal. Keep monitoring regularly.")
+
+    return recommendations
+
+
