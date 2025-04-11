@@ -56,7 +56,7 @@ KisanDost offers a multi-agent AI system that:
 ## Code Structure
 
 
-kisandost/
+KissanDost/
 ├── agents/                 # AI agents for different tasks
 ├── sensors/                # Code to read sensor data
 ├── models/                 # AI and FL models
