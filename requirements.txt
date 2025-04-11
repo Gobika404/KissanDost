@@ -1,0 +1,12 @@
+### requirements.txt
+
+txt
+flask
+speechrecognition
+pyttsx3
+pyaudio
+sqlite3
+numpy
+scikit-learn
+paho-mqtt
+
