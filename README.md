@@ -54,16 +54,23 @@ KissanDost offers a multi-agent AI system that:
 ---
 
 ## Code Structure
+kisandost/
+├── main.py
+├── sensors/
+│   └── sensor_reader.py
+├── ai/
+│   └── advisor.py
+├── voice/
+│   └── voice_alert.py
+├── data/
+│   └── database.py
+├── utils/
+│   └── lorawan.py
+├── requirements.txt
+└── README.md
 
 
-KissanDost/
-├── agents/                 # AI agents for different tasks
-├── sensors/                # Code to read sensor data
-├── models/                 # AI and FL models
-├── database/               # SQLite memory
-├── utils/                  # Utility functions (voice, LoRa, etc.)
-├── main.py                 # Main controller
-└── README.md               # Project documentation
+
 
 
 ##  How to Run
